@@ -28,6 +28,10 @@ fn check_response(response: &str) -> Option<InputData> {
     })
 }
 
+// TODO: I need a method that converts the input_base to the output_base if the input_base is larger
+
+// TODO: Allow conversion for bases larger than base 10
+
 fn main() {
     println!("TEST HERE");
 
@@ -62,17 +66,13 @@ fn main() {
 
             let mut working_num = i.input_num.clone();
 
-            // TODO: I need a method that converts the input_base to the output_base if the input_base is larger
-
-            // TODO: Allow conversion for bases larger than base 10
-
             while working_num > 0 {
                 let digit = working_num % 10;
 
-                // TODO: Currently this would be thinking in base 10
+                // TODO: Currently this would be thinking in base 10 and thus isn't correct
                 // it needs to think in the output_base
                 // thus, I need to add and multiply in the output_base
-                // It could be done character by character, or I could take a shortcut here.
+
                 val = val + (digit * i.input_base);
                 working_num = working_num / 10;
             }
