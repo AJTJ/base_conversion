@@ -10,7 +10,6 @@ struct InputData {
 fn check_response(response: &str) -> Option<InputData> {
     let split_response = response.split(" ");
     let mut nums = vec![];
-    let mut first = true;
     for s in split_response {
         match s.trim().parse::<usize>() {
             Ok(n) => nums.push(n),
@@ -48,7 +47,7 @@ fn main() {
 
         let mut val: usize = 0;
         if let Some(i) = check_response(&input) {
-            if i.input_base > 10 || i.output_base > 10 {
+            if i.input_base > 10 || i.output_base > 10 || i.input_base > i.output_base {
                 println!("base too large");
                 break;
             }
@@ -63,13 +62,17 @@ fn main() {
 
             let mut working_num = i.input_num.clone();
 
+            // TODO: I need a method that converts the input_base to the output_base if the input_base is larger
+
+            // TODO: Allow conversion for bases larger than base 10
+
             while working_num > 0 {
                 let digit = working_num % 10;
 
-                // the following is true, but we need to convert it to the new base
-
-                let x = digit * i.input_base
-
+                // TODO: Currently this would be thinking in base 10
+                // it needs to think in the output_base
+                // thus, I need to add and multiply in the output_base
+                // It could be done character by character, or I could take a shortcut here.
                 val = val + (digit * i.input_base);
                 working_num = working_num / 10;
             }
