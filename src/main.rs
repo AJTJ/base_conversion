@@ -44,7 +44,7 @@ fn main() {
     }
 
     loop {
-        println!("Input format: input number base conversion base");
+        println!("Input format: input_number base conversion_base");
         println!("example: 11011 2 4");
         let mut input = String::new();
         io::stdin().read_line(&mut input).expect("input Error");
