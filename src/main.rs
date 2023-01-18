@@ -35,8 +35,6 @@ fn check_response(response: &str) -> Option<InputData> {
 // https://www.youtube.com/watch?v=nm6wmLD5F9s&t=26s
 
 fn main() {
-    println!("TEST HERE");
-
     let mut num = 12534;
     let base = 10;
     while num > 0 {
